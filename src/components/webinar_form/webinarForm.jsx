@@ -9,7 +9,7 @@ import {isValidPhone} from 'phone-validation'
 import './form.css'
 
 import Axios from "axios";
-import { ajax } from "jquery";
+import { ajax } from "jquery"; 
 // import gapi from "gapi"
 // const API_KEY = process.env.API_KEY || require('../../config/keys').API_KEY
 // const CLIENT_ID = process.env.CLIENT_ID || require('../../config/keys').CLIENT_ID
