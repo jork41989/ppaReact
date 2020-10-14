@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import FormHelperText from '@material-ui/core/FormHelperText';
 import isValidZipcode from "is-valid-zipcode"
 import WebinarFormFeilds from './webinarFromFields'
 
 import * as EmailValidator from 'email-validator';
-import {isValidPhone} from 'phone-validation'
 
 import './form.css'
 
 import Axios from "axios";
-import { ajax } from "jquery"; 
+
 // import gapi from "gapi"
 // const API_KEY = process.env.API_KEY || require('../../config/keys').API_KEY
 // const CLIENT_ID = process.env.CLIENT_ID || require('../../config/keys').CLIENT_ID
@@ -32,8 +30,6 @@ export default function WebinarForm() {
       console.log(document.getElementById("zipcode"))
     } else if (type === "email"){
       console.log(EmailValidator.validate(val))
-    } else if (type === "phone"){
-      console.log(isValidPhone(val))
     }
     oldData[type] = val
     setFormData(oldData)
@@ -99,12 +95,7 @@ export default function WebinarForm() {
       setFormErrors(oldErrors)
       console.log("zip")
     }
-    if (!isValidPhone(formData.phone)) {
-      setBadData(true)
-      oldErrors.phone = true
-      setFormErrors(oldErrors)
-      console.log("phone")
-    }
+
     if (!EmailValidator.validate(formData.email)) {
       setBadData(true)
       oldErrors.email = true
