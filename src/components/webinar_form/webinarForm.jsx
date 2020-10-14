@@ -1,17 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import FormHelperText from '@material-ui/core/FormHelperText';
 import isValidZipcode from "is-valid-zipcode"
-import MenuItem from '@material-ui/core/MenuItem';
+import WebinarFormFeilds from './webinarFromFields'
+
 import * as EmailValidator from 'email-validator';
 import {isValidPhone} from 'phone-validation'
-import TextField from '@material-ui/core/TextField';
-import Input from '@material-ui/core/Input';
+
 import './form.css'
-import { Select } from "@material-ui/core";
+
+import Axios from "axios";
+import { ajax } from "jquery";
+// import gapi from "gapi"
+// const API_KEY = process.env.API_KEY || require('../../config/keys').API_KEY
+// const CLIENT_ID = process.env.CLIENT_ID || require('../../config/keys').CLIENT_ID
+// const SPREADSHEET_ID = process.env.SPREADSHEET_ID || require('../../config/keys').SPREADSHEET_ID;
+// const SCOPE = process.env.SCOPE || require('../../config/keys').SCOPE
 
 export default function WebinarForm() {
 
   const [formData, setFormData] = useState({firstName:"", lastName: "", email:"", phone: "", address:"", city:"", state:"", zipcode:""})
-  const [badData, setBadData] = useState(true)
+  const [formErrors, setFormErrors] = useState({ firstName: false, lastName: false, email: false, phone: false, address: false, city: false, state: false, zipcode: false })
+  const [badData, setBadData] = useState()
 
   let changer = (e) =>{
     console.log(e.target.name)
@@ -20,6 +29,7 @@ export default function WebinarForm() {
     let oldData = formData
     if(type === "zipcode"){
       console.log(isValidZipcode(val))
+      console.log(document.getElementById("zipcode"))
     } else if (type === "email"){
       console.log(EmailValidator.validate(val))
     } else if (type === "phone"){
@@ -39,87 +49,102 @@ export default function WebinarForm() {
     console.log(formData)
   }
 
-  let submitter = (e) =>{
+  let submitter = async (e) =>{
     e.preventDefault()
+    console.log("submitting")
+    
+    await checks()
+      .then(
 
+        sendData(Object.values(formData))
+      )
+    // const params = {
+    //   spreadsheetId: SPREADSHEET_ID,
+    //   range: 'Sheet1',
+    //   valueInputOption: 'RAW',
+    //   insertDataOptions: 'INSERT_ROWS'
+    // }
+    // const valueRangeBody = {
+    //   'majorDimension': 'ROWS',
+    //   'values': [Object.values(formData)]
+    // }
+    // console.log(badData)
+    // if(!badData){
+    //   // let request = gapi.client.sheets.spreadsheets.values.append(params, valueRangeBody)
+    //   // try{
+    //   //   let res = request
+    //   //   console.log(res)
+    //   // } catch(err){
+    //   //   console.log(err)
+    //   // }
+    //   sendData(Object.values(formData))
+    // }
+
+      
   } 
+
+  let checks = async () =>{
+    let oldErrors = formErrors
+    setBadData(false)
+    if (formData.state === '') {
+      debugger
+      setBadData(true)
+      oldErrors.state = true
+      setFormErrors(oldErrors)
+      console.log("state")
+    }
+    if (!isValidZipcode(formData.zipcode)) {
+      setBadData(true)
+      oldErrors.zipcode = true
+      setFormErrors(oldErrors)
+      console.log("zip")
+    }
+    if (!isValidPhone(formData.phone)) {
+      setBadData(true)
+      oldErrors.phone = true
+      setFormErrors(oldErrors)
+      console.log("phone")
+    }
+    if (!EmailValidator.validate(formData.email)) {
+      setBadData(true)
+      oldErrors.email = true
+      setFormErrors(oldErrors)
+      console.log("email")
+    }
+  }
+
+  let sendData = async (formInfo) => {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzLoUFtN_Ma4SE7uZsd6Bav9f5dknpQvbaK5cK3AdBC3MuS_CJz/exec'
+    console.log("testing")
+    Axios.get(scriptURL, formInfo)
+      .then(res => console.log(res))
+
+
+  }
+
+
+  // let handleClientLoad = () =>{
+  //     gapi.load('client:auth2', initClient)
+  // }
+
+  // let initClient = () => {
+  //   gapi.client.init({
+  //     'apiKey': API_KEY,
+  //     'clientId': CLIENT_ID,
+  //     'scope': SCOPE,
+  //     'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4']
+  //   }).then(()=>{
+  //     gapi.auth2.getAuthInstance().isSignedIn.listen(this.updateSignInStatus);
+  //     this.updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+  //   })
+  // }
 
 
 
   return (
     <div className="contentMain backg3" id="form_body">
       <div className="formBack">
-        <form name="register" id="registerForm">
-          <div className="formTop">
-            <TextField type="text" name="first_name" id="firstName" placeholder="First Name" onChange={changer} />
-            <TextField type="text" name="last_name" id="lastName" placeholder="Last Name" onChange={changer} />
-            <Input type="email" name="email" id="email" placeholder="Email" onChange={changer} />
-            <Input type="tel" name="phone" id="phone" placeholder="Phone Number" onChange={changer} />
-          </div>
-          <div className="addressDiv">
-            <Input type="text" name="address" id="address" placeholder="Address" classes={{root: "address"}} onChange={changer} />
-          </div>
-          <div className="formMid">
-
-            <TextField type="text" name="city" id="city" placeholder="City" onChange={changer} />
-            <Select type="text" name="state" id="state" placeholder="State" onChange={stateAbr} value={formData.state}>
-              <MenuItem value={"AL"}>AL</MenuItem>
-              <MenuItem value={"AK"}>AK</MenuItem>
-              <MenuItem value={"AZ"}>AZ</MenuItem>
-              <MenuItem value={"AR"}>AR</MenuItem>
-              <MenuItem value={"CA"}>CA</MenuItem>
-              <MenuItem value={"CO"}>CO</MenuItem>
-              <MenuItem value={"CT"}>CT</MenuItem>
-              <MenuItem value={"DE"}>DE</MenuItem>
-              <MenuItem value={"DC"}>DC</MenuItem>
-              <MenuItem value={"FL"}>FL</MenuItem>
-              <MenuItem value={"GA"}>GA</MenuItem>
-              <MenuItem value={"HI"}>HI</MenuItem>
-              <MenuItem value={"ID"}>ID</MenuItem>
-              <MenuItem value={"IL"}>IL</MenuItem>
-              <MenuItem value={"IN"}>IN</MenuItem>
-              <MenuItem value={"IA"}>IA</MenuItem>
-              <MenuItem value={"KS"}>KS</MenuItem>
-              <MenuItem value={"KY"}>KY</MenuItem>
-              <MenuItem value={"LA"}>LA</MenuItem>
-              <MenuItem value={"ME"}>ME</MenuItem>
-              <MenuItem value={"MD"}>MD</MenuItem>
-              <MenuItem value={"MA"}>MA</MenuItem>
-              <MenuItem value={"MI"}>MI</MenuItem>
-              <MenuItem value={"MN"}>MN</MenuItem>
-              <MenuItem value={"MS"}>MS</MenuItem>
-              <MenuItem value={"MO"}>MO</MenuItem>
-              <MenuItem value={"MT"}>MT</MenuItem>
-              <MenuItem value={"NE"}>NE</MenuItem>
-              <MenuItem value={"NV"}>NV</MenuItem>
-              <MenuItem value={"NH"}>NH</MenuItem>
-              <MenuItem value={"NJ"}>NJ</MenuItem>
-              <MenuItem value={"NM"}>NM</MenuItem>
-              <MenuItem value={"NY"}>NY</MenuItem>
-              <MenuItem value={"NC"}>NC</MenuItem>
-              <MenuItem value={"ND"}>ND</MenuItem>
-              <MenuItem value={"OH"}>OH</MenuItem>
-              <MenuItem value={"OK"}>OK</MenuItem>
-              <MenuItem value={"OR"}>OR</MenuItem>
-              <MenuItem value={"PA"}>PA</MenuItem>
-              <MenuItem value={"RI"}>RI</MenuItem>
-              <MenuItem value={"SC"}>SC</MenuItem>
-              <MenuItem value={"SD"}>SD</MenuItem>
-              <MenuItem value={"TN"}>TN</MenuItem>
-              <MenuItem value={"TX"}>TX</MenuItem>
-              <MenuItem value={"UT"}>UT</MenuItem>
-              <MenuItem value={"VT"}>VT</MenuItem>
-              <MenuItem value={"VA"}>VA</MenuItem>
-              <MenuItem value={"WA"}>WA</MenuItem>
-              <MenuItem value={"WV"}>WV</MenuItem>
-              <MenuItem value={"WI"}>WI</MenuItem>
-              <MenuItem value={"WY"}>WY</MenuItem>
-            </Select>
-            <Input type="number" name="zip" id="zipcode" placeholder="Zipcode" onChange={changer} />
-          </div>
-
-          <Input type="submit" value="Register"/>
-        </form>
+        <WebinarFormFeilds changer={changer} stateAbr={stateAbr} formErrors={formErrors} submitter={submitter} />
       </div>
 
      </div>
