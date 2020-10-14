@@ -11,3 +11,462 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  margin: 0;
+}
+
+.logoModal {
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  overflow: hidden;
+  overflow-x: hidden;
+  justify-content: center;
+  background-color: white;
+  z-index: 999;
+}
+
+.logoModalSvg {
+  width: 50%;
+  opacity: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.fadeIn {
+  opacity: 1;
+  transition: opacity 2s ease-in;
+  -webkit-transition: opacity 2s ease-in;
+}
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 2s ease-out;
+  -webkit-transition: opacity 2s ease-out;
+}
+
+.hideMe {
+  display: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100px;
+  width: 100%;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  background: white;
+  z-index: 500;
+}
+
+.logoHead {
+  height: 70px;
+}
+
+.headerButton {
+  color: #333399;
+  background: none;
+  border: none;
+  font-size: 25px;
+  margin-right: 15px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.logoMain {
+  width: 40%;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.contentMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 530px;
+}
+
+.mainH1 {
+  color: #333399;
+  text-align: center;
+}
+
+.mainH1v2 {
+  color: white;
+  text-align: center;
+}
+
+.mainP {
+  color: #999999;
+  width: 60%;
+  margin-left: 5%;
+  margin-right: 5%;
+  align-self: center;
+  font-size: 25px;
+}
+
+.member {
+  width: 33.33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.members {
+  display: flex;
+  flex-direction: row;
+}
+
+.memberImg {
+  width: 100%;
+  align-self: center;
+  background: white;
+  border-radius: 15px;
+}
+
+.memberComp {
+  color: white;
+  margin: 5px;
+  font-size: 24px;
+}
+
+.memberA {
+  width: 60%;
+  align-self: center;
+}
+
+.memberLink {
+  text-decoration: none;
+  color: white;
+  font-size: 24px;
+}
+
+.backg2 {
+  background-color: #999999;
+}
+
+.backg3 {
+  background: #333399;
+  padding-bottom: 39px;
+}
+
+.font2 {
+  color: white;
+}
+
+.phoneNum {
+  text-decoration: none;
+}
+
+.socialFoot {
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.socialIcon {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.footerPhone {
+  color: #333399;
+  font-size: 24px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 13px;
+}
+
+.group {
+  width: 26%;
+  align-self: center;
+}
+
+.sponsorsMain {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  margin-left: 20%;
+  justify-content: space-between;
+}
+
+
+.sponsorImg {
+  height: 300px;
+  width: 300px;
+  background-color: white;
+  object-fit: contain;
+}
+
+.sponsorImgA {
+  height: 300px;
+  width: 300px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.webinar {
+  min-height: 500px;
+  background-image: url(/images/PPA_web_background.png);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.webinar_info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 40%;
+  margin-left: 10%;
+  font-size: 50px;
+}
+
+.live_Div {
+  display: flex;
+  flex-direction: row;
+}
+
+.live_h2 {
+  padding: 10px;
+  background-color: red;
+  border-radius: 10px;
+  color: white;
+
+}
+
+.zoom_h2 {
+  padding: 10px;
+
+  color: white;
+}
+
+.webinar_byline {
+  padding: 10px;
+
+  color: white;
+  font-weight: bold;
+}
+
+.webinar_image {
+  width: 40%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.webinar_timedate {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  font-size: 36px;
+  position: relative;
+  top: -70px;
+}
+
+.webinar_time {
+  width: 50%;
+  color: white;
+  background-color: #333399;
+  text-align: center;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.boldMe {
+  font-weight: bold;
+}
+
+.logo_small {
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.webinar_date {
+  width: 50%;
+  color: white;
+  background-color: #999999;
+  text-align: center;
+  border-radius: 0px 15px 15px 0px;
+}
+
+.webinar_details {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.webinar_logo_div {
+  display: flex;
+  justify-content: center;
+}
+
+.clock_icon {
+
+  color: #333399;
+
+}
+
+.cal_icon {
+  color: #999999;
+}
+
+.top_p {
+  margin-top: -11px;
+}
+
+.circle {
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: white;
+  align-items: center;
+  justify-self: center;
+  position: relative;
+  top: -46px;
+  left: 24%;
+}
+
+.reg_button {
+  color: white;
+  font-size: 45px;
+  background-color: red;
+  padding: 15px;
+  border-radius: 15px;
+  width: 30%;
+  align-self: center;
+  margin-bottom: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.form_info_back {
+  margin-top: 7%;
+}
+
+
+@media screen and (max-width: 1160px) {
+  .header {
+    flex-direction: column;
+    height: 138px;
+  }
+
+  .sponsorsMain {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .webinar_details {
+    flex-direction: column;
+  }
+
+  .form_info_back {
+    margin-top: 19%;
+  }
+
+  .reg_button {
+    width: 60%;
+    font-size: 30px;
+  }
+
+
+  .webinar_timedate {
+    width: 280px;
+    align-self: center;
+  }
+
+  .circle {
+    left: 16%;
+  }
+
+  .sponsorImgA {
+    margin-bottom: 21px;
+    margin-top: 15px;
+    height: 150px;
+    width: 150px;
+  }
+
+  .sponsorImg {
+    height: 150px;
+    width: 150px;
+  }
+
+  #home {
+    padding-top: 100px;
+  }
+
+  .headerButton {
+    font-size: 20px;
+  }
+
+  .links {
+    margin-top: 5px;
+    flex-wrap: wrap;
+  }
+
+  .member {
+    width: 60%;
+  }
+
+  .members {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .member {
+    width: 75%;
+    margin-bottom: 20px;
+  }
+
+  .webinar_image {
+    display: none;
+  }
+
+  .webinar_info {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .form_info_back {
+    margin-top: 42%;
+  }
+
+  .group {
+    width: 60%;
+  }
+
+  .memberLink {
+    font-size: 20px;
+  }
+
+  .mainP {
+    font-size: 20px;
+  }
+}
