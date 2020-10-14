@@ -5,10 +5,10 @@ export default function Sponsors() {
     <div className="contentMain backg2" id="sponsors">
       <h1 className="mainH1">Our Sponsors</h1>
       <div className="sponsorsMain">
-        <a href="http://www.secureganize.com/" className="sponsorImgA" target="_blank">
+        <a href="http://www.secureganize.com/" className="sponsorImgA" target="_blank" rel="noopener noreferrer">
           <img src="/images/secureganize_logo_high res.jpg" alt="secureganize" className="sponsorImg"/>
           </a>
-          <a href="https://www.realestatefinder.com/" className="sponsorImgA">
+        <a href="https://www.realestatefinder.com/" className="sponsorImgA" target="_blank" rel="noopener noreferrer">
             <img src="/images/SREF_Signature-Real-Estate-Finder-1024x1024.png" alt="realestatefinder.com" className="sponsorImg"/>
           </a>
         </div>

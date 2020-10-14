@@ -1,0 +1,45 @@
+.formBack{
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding: 50px;
+  margin-left: 10%;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.formTop{
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.formMid{
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.addressDiv{
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.address{
+  width: 40%;
+}
+
+@media screen and (max-width: 600px) {
+  .formTop {
+    justify-content: center;
+  }
+  .formMid{
+    justify-content: center;
+  }
+}
