@@ -108,7 +108,7 @@ export default function WebinarForm() {
   let sendData = async (formInfo) => {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbzLoUFtN_Ma4SE7uZsd6Bav9f5dknpQvbaK5cK3AdBC3MuS_CJz/exec'
     console.log("testing")
-    Axios.get(scriptURL, formInfo)
+    Axios.get(scriptURL, formInfo.serializeObject())
       .then(res => console.log(res))
 
 
