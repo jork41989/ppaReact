@@ -6,7 +6,7 @@ export default function Team() {
       <h1 className="mainH1v2">Meet The Alliance</h1>
       <div className="members">
         <div className="member">
-          <a href="https://www.thegardens.com" target="_blank" className="memberA">
+          <a href="https://www.thegardens.com" target="_blank" rel="noopener noreferrer" className="memberA">
             <img src="/images/jacobs.png" alt="jacobs" className="memberImg"/>
             </a>
             <h2 className="mainH1v2">Garrett & Marshall Jacobs</h2>
@@ -16,7 +16,7 @@ export default function Team() {
           </div>
 
           <div className="member">
-            <a href="https://www.howardkayeinsurance.com" target="_blank" className="memberA">
+          <a href="https://www.howardkayeinsurance.com" target="_blank" rel="noopener noreferrer" className="memberA">
               <img src="/images/kayev2.png" alt="Kaye" className="memberImg"/></a>
               <h2 className="mainH1v2">HOWARD KAYE</h2>
               <p className="memberComp">Howard Kaye Insurance Agency, LLC.</p>
@@ -25,7 +25,7 @@ export default function Team() {
           </div>
 
             <div className="member">
-              <a href="https://www.nelsonmullins.com/people/john-raymond" target="_blank" className="memberA">
+          <a href="https://www.nelsonmullins.com/people/john-raymond" target="_blank" rel="noopener noreferrer" className="memberA">
                 <img src="/images/raymondv2.png" alt="raymond" className="memberImg"/>
             </a>
                 <h2 className="mainH1v2">John J. Raymond</h2>

@@ -6,7 +6,7 @@ export default function Footer() {
   
   return (
     <div className="socialFoot">
-      <a href="https://www.facebook.com/ProfessionalPreparednessAlliance/" target="_blank">
+      <a href="https://www.facebook.com/ProfessionalPreparednessAlliance/" target="_blank" rel="noopener noreferrer">
         <img src="/images/1024px-F_icon.svg.png" alt="facebook" className="socialIcon"/>
         </a>
         <p className="footerPhone">561-486-9616</p>

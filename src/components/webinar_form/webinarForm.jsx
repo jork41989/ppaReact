@@ -21,7 +21,7 @@ export default function WebinarForm() {
   const [badData, setBadData] = useState()
 
   let changer = (e) =>{
-    console.log(e.target.name)
+ 
     let type = e.target.id
     let val = e.target.value
     let oldData = formData
@@ -102,6 +102,7 @@ export default function WebinarForm() {
       setFormErrors(oldErrors)
       console.log("email")
     }
+    console.log(badData)
   }
 
   let sendData = async (formInfo) => {
