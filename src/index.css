@@ -78,6 +78,13 @@ body {
   text-decoration: none;
 }
 
+.call_button_head{
+  background: #333399;
+  color: white;
+  padding: .5em;
+  border-radius: .5em;
+}
+
 .links {
   display: flex;
   flex-direction: row;
