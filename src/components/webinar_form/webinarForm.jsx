@@ -6,7 +6,7 @@ import * as EmailValidator from 'email-validator';
 
 import './form.css'
 
-import Axios from "axios";
+
 
 // import gapi from "gapi"
 // const API_KEY = process.env.API_KEY || require('../../config/keys').API_KEY
@@ -49,10 +49,11 @@ export default function WebinarForm() {
     e.preventDefault()
     console.log("submitting")
     
-    await checks()
+    
+    await checks(e)
       .then(
 
-        sendData(Object.values(formData))
+        sendData(formData)
       )
     // const params = {
     //   spreadsheetId: SPREADSHEET_ID,
@@ -79,11 +80,11 @@ export default function WebinarForm() {
       
   } 
 
-  let checks = async () =>{
+  let checks = async (e) =>{
+    e.preventDefault()
     let oldErrors = formErrors
     setBadData(false)
     if (formData.state === '') {
-      debugger
       setBadData(true)
       oldErrors.state = true
       setFormErrors(oldErrors)
@@ -106,10 +107,16 @@ export default function WebinarForm() {
   }
 
   let sendData = async (formInfo) => {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzLoUFtN_Ma4SE7uZsd6Bav9f5dknpQvbaK5cK3AdBC3MuS_CJz/exec'
-    console.log("testing")
-    Axios.get(scriptURL, formInfo.serializeObject())
-      .then(res => console.log(res))
+ 
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyCxRkwxX7TFY7tF7En6IaAtbgRKShtbE7MZ91MF6f_JSO1LrDt/exec'
+    // console.log("testing")
+  
+
+    fetch(scriptURL, { method: 'POST', body: formData, mode: "no-cors", })
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    
 
 
   }

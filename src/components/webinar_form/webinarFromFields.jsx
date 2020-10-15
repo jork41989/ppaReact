@@ -78,7 +78,7 @@ export default function WebinarFormFeilds({changer, submitter, stateAbr, formErr
           </Select>
         </FormControl>
         <FormControl id="zipControler">
-          <Input type="number" name="zip" id="zipcode" placeholder="Zipcode" onChange={changer} error={formErrors.zipcode} />
+          <Input type="number" name="zip" id="zipcode" placeholder="Zipcode" onChange={changer} error={formErrors.zip} />
         </FormControl>
       </div>
 

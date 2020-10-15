@@ -4,7 +4,7 @@
   flex-direction: column;
   width: 80%;
   padding: 50px;
-  margin-left: 10%;
+  align-self: center;
   justify-content: center;
   border-radius: 15px;
 }
@@ -41,5 +41,10 @@
   }
   .formMid{
     justify-content: center;
+    flex-direction: column;
+  }
+
+  .formBack{
+    padding: 3%;
   }
 }
