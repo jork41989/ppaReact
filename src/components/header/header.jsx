@@ -16,7 +16,7 @@ export default function Header(){
           <HashLink to={"/#vision"} className="headerButton">Our Vision</HashLink>
           <HashLink to={"/#mission"} className="headerButton" scroll={el => scrollWithOffset(el)}>Mission Statement</HashLink>
           <HashLink to={"/#team"} className="headerButton" scroll={el => scrollWithOffset(el)}>Meet Us</HashLink>
-          <a href="tel:561-486-9616" className="headerButton">Call Now 561-486-9616</a>
+          <a href="tel:561-486-9616" className="headerButton call_button_head">Call Now 561-486-9616</a>
         </div>
      </div>
   )
