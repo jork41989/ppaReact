@@ -5,7 +5,7 @@ export default function Header(){
 
   let scrollWithOffset = (el) => {
     const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-    const yOffset = -100;
+    const yOffset = -150;
     window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' });
   }
 
