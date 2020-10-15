@@ -143,7 +143,8 @@ export default function WebinarForm() {
   return (
     <div className="contentMain backg3" id="form_body">
       <div className="formBack">
-        <WebinarFormFeilds changer={changer} stateAbr={stateAbr} formErrors={formErrors} submitter={submitter} />
+        {/* <WebinarFormFeilds changer={changer} stateAbr={stateAbr} formErrors={formErrors} submitter={submitter} /> */}
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSctsyMUl0sFceVWJjzOC5uvz8rrrQnBI13UjMji7bMNNFUBbQ/viewform?embedded=true" className="formFrame">Loading…</iframe>
       </div>
 
      </div>
