@@ -414,11 +414,13 @@ body {
 
   .headerButton {
     font-size: 20px;
+    margin-left: 0px;
   }
 
   .links {
     margin-top: 5px;
     flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 
   .member {
