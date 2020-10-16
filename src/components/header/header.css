@@ -1,0 +1,23 @@
+.drawer{
+  width: drawerWidth;
+  flexShrink: 0;
+}
+
+.drawerPaper{
+  width: drawerWidth
+}
+
+.menuButtonDiv{
+  display: flex;
+  flex-direction: row;
+  margin-left: 2%;
+}
+
+.burger_links{
+  flex-direction: column;
+  padding-top: 10%;
+}
+
+.burger_button{
+  margin-top: 25px;
+}
