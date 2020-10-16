@@ -32,7 +32,7 @@ export default function Header(){
                   variant="persistent"
                   anchor="left"
                   open={open}>
-                    < div className="links burger_links" >
+                    < div className="burger_links" >
                       <i class="fas fa-arrow-circle-right headerButton" onClick={handleDrawerClose}></i>
                       <HashLink to={"/#vision"} className="headerButton burger_button" onClick={handleDrawerClose}>Our Vision</HashLink>
                       <HashLink to={"/#mission"} className="headerButton burger_button" scroll={el => scrollWithOffset(el)} onClick={handleDrawerClose}>Mission Statement</HashLink>

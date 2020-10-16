@@ -56,43 +56,10 @@ iframe{
   display: none;
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 10px;
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 2;
-}
 
-.logoHead {
-  height: 70px;
-}
 
-.headerButton {
-  color: #333399;
-  background: none;
-  border: none;
-  font-size: 25px;
-  margin-left: 50px;
-  text-align: center;
-  text-decoration: none;
-}
 
-.call_button_head{
-  background: #333399;
-  color: white;
-  padding: .5em;
-  border-radius: .5em;
-}
 
-.links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 
 .logoMain {
   width: 40%;
@@ -379,10 +346,6 @@ iframe{
 
 
 @media screen and (max-width: 1160px) {
-  .header {
-    flex-direction: column;
-    height: 138px;
-  }
 
   .live_Div{
     justify-content: center;
@@ -426,17 +389,6 @@ iframe{
 
   #home {
     padding-top: 100px;
-  }
-
-  .headerButton {
-    font-size: 20px;
-    margin-left: 0px;
-  }
-
-  .links {
-    margin-top: 5px;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
   }
 
   .member {
