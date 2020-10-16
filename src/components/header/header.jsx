@@ -26,14 +26,14 @@ export default function Header(){
   let sizeCheck = () =>{
     if(isMobile){
       return  <div className="menuButtonDiv">
-                <i className="fas fa-bars" onClick={handleDrawerOpen}></i>
+                <i className="fas fa-bars headerButton" onClick={handleDrawerOpen}></i>
                 <Drawer
                   className="drawer"
                   variant="persistent"
                   anchor="left"
                   open={open}>
                     < div className="links burger_links" >
-                      <i class="fas fa-arrow-circle-right" onClick={handleDrawerClose}></i>
+                      <i class="fas fa-arrow-circle-right headerButton" onClick={handleDrawerClose}></i>
                       <HashLink to={"/#vision"} className="headerButton burger_button" onClick={handleDrawerClose}>Our Vision</HashLink>
                       <HashLink to={"/#mission"} className="headerButton burger_button" scroll={el => scrollWithOffset(el)} onClick={handleDrawerClose}>Mission Statement</HashLink>
                       <HashLink to={"/#team"} className="headerButton burger_button" scroll={el => scrollWithOffset(el)} onClick={handleDrawerClose}>Meet Us</HashLink>
