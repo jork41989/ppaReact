@@ -2,6 +2,7 @@ import React from "react";
 
 
 import './form.css'
+import FormFrame from "./formFrame";
 
 
 
@@ -14,15 +15,11 @@ import './form.css'
 export default function WebinarForm() {
 
 
-
-
   return (
     <div className="contentMain backg3" id="form_body">
-      <div className="formBack">
-        {/* <WebinarFormFeilds changer={changer} stateAbr={stateAbr} formErrors={formErrors} submitter={submitter} /> */}
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSctsyMUl0sFceVWJjzOC5uvz8rrrQnBI13UjMji7bMNNFUBbQ/viewform?embedded=true" className="formFrame" title="PPAForm">Loading…</iframe>
-      </div>
-
+      
+        <FormFrame/>
      </div>
   )
+  
 }
